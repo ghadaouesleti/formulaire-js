@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="formulaire.css">
+   
+         
+</head>
+<body>
+       
+  <form   name="formulaire" method="GET"  action="inscription.html">
+      
+     <div class="grid-container">
+      <fieldset  >  
+        <legend> Inscription </legend>
+          <!--name-->
+
+        <div class="grid-item1"> <label for=nom>Prénom et Nom * :</label>
+                                   <input type="text" name="name"  id="name" > </div><br>
+
+          <!--cin-->
+        <div class="grid-item2"> <label for=CIN>CIN * :</label>
+                                   <input id= "CIN"  name=CIN type=CIN > </div><br>
+
+         <!--email-->
+        <div class="grid-item3">  <label for=email> Adresse mail * :</label>
+                                   <input id=email name=email type=email  ></div><br>
+
+            <!--niveau scolaire-->
+        <div class="grid-item4"> <label for="Niveau Scolaire :"> Niveau Scolaire :</label>  
+                              <input  id="s" value="Secondaire" type= radio name="rad" checked >
+               
+                              <label for=sec>Secondaire</label> 
+                              <input  id="s" value="Universitaire" type= radio name="rad" >
+                
+                              <label for=unv>Universitaire</label> 
+                             <input  id="s" value="autre" type=radio name="rad" >
+                             <label for=autre>Autre</label> </div><br>
+            <!--formation -->
+
+        <div class="grid-item5"> 
+            <div class="left"> <label >  Modules de formation : </label> </div><br>
+            <div class="right"> <select multiple  id="fo" >
+                        <option id="f" selected value="H" > HTML5</option>
+                        <option id="f" selected value="c"> CSS3 </option>
+                        <option id="f" selected value="j"> JavaScript</option>
+                        <option id="f" selected value="j">JQuery</option>
+                
+                 </select>
+                    
+            </div><br>
+    
+       
+        </div>
+         <div class="grid-item6">(*) champs obligatoires </div>   <br>
+        
+         <!--button-->
+             
+        <div class="grid-item7" >  <button  type="submit" class="but" onclick="return verif()" >  Envoyer</button>
+                                   <button  class="but" onclick="submit" >  Annuler</button> </div>
+
+  
+  
+
+  </fieldset>
+</div>
+</form> 
+<!---script -->
+
+<script  language="javascript" >
+  function verif ()
+{  
+    //**nom prenom
+  a = formulaire.name.value;
+  exp=/^[A-Z]{1}[a-z ]+$/;
+  if(exp.test(a)==false ) 
+ {
+ alert ("vérifier votre Nom et Prénom sont incorrect!");
+  return false;
+  
+
+}
+//**CIN
+else if (formulaire.CIN.value.length !=8)
+{
+  alert ("vérifier votre CIN est incorrect!");
+  return false;
+}
+//**email
+
+else if((formulaire.email.value.indexOf('@')== -1)||(formulaire.email.value.indexOf('.')< 0 ) )
+{ 
+alert("vérifier votre email est incorrect!");
+return false;
+}
+//**niveau colaire
+else if ((!formulaire.s[0].checked)&&(formulaire.s[1].checked==false)&&(formulaire.s[2].checked==false))
+{
+... (16 lignes restantes)
